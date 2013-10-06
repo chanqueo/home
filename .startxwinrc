@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Programs to load with X-Server.
+#emacs &
+
+# Add font path.
+if [ -x xset ]
+then
+    xset +fp ~/.fonts
+fi
