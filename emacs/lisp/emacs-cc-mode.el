@@ -76,4 +76,5 @@
                 1 2 nil (4 . 5)) compilation-error-regexp-alist-alist)
 (add-to-list 'compilation-error-regexp-alist 'iar2)
 
-(add-to-list 'auto-mode-alist '("\\.nc\\'"  . c-mode))
+(add-to-list 'auto-mode-alist '("\\.nc\\'" . c-mode))
+(add-to-list 'auto-mode-alist '("\\.dox\\'" . c-mode))

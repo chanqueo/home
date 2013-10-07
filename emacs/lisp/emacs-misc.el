@@ -99,18 +99,18 @@
   "Recursively searches each parent directory for a directory named `trunk'
    and returns the path to it or nil if not found.
    Returns nil if the buffer is not visiting a file."
-  (labels ((oc/find-trunk-r
-            (path)
-            (let* ((parent (if path (file-name-directory path)
-                             default-directory))
-                   (possible-trunk (concat parent "trunk")))
-              (cond
-               ((file-exists-p possible-trunk)
-                (throw 'found-it possible-trunk))
-               ((string= "/trunk" possible-trunk)
-                (throw 'found-it nil))
-               (t
-                (oc/find-trunk-r (directory-file-name parent)))))))
+  (cl-labels ((oc/find-trunk-r
+               (path)
+               (let* ((parent (if path (file-name-directory path)
+                                default-directory))
+                      (possible-trunk (concat parent "trunk")))
+                 (cond
+                  ((file-exists-p possible-trunk)
+                   (throw 'found-it possible-trunk))
+                  ((string= "/trunk" possible-trunk)
+                   (throw 'found-it nil))
+                  (t
+                   (oc/find-trunk-r (directory-file-name parent)))))))
     (catch 'found-it
       (oc/find-trunk-r (buffer-file-name)))))
 
@@ -146,18 +146,18 @@
   "Recursively searches each parent directory for a file named `TAGS'
    and returns the path to that file or nil if a tags file is not found.
    Returns nil if the buffer is not visiting a file."
-  (labels ((oc/find-tags-file-r
-            (path)
-            (let* ((parent (if path (file-name-directory path)
-                             default-directory))
-                   (possible-tags-file (concat parent "TAGS")))
-              (cond
-               ((file-exists-p possible-tags-file)
-                (throw 'found-it possible-tags-file))
-               ((string= "/TAGS" possible-tags-file)
-                (throw 'found-it nil))
-               (t
-                (oc/find-tags-file-r (directory-file-name parent)))))))
+  (cl-labels ((oc/find-tags-file-r
+               (path)
+               (let* ((parent (if path (file-name-directory path)
+                                default-directory))
+                      (possible-tags-file (concat parent "TAGS")))
+                 (cond
+                  ((file-exists-p possible-tags-file)
+                   (throw 'found-it possible-tags-file))
+                  ((string= "/TAGS" possible-tags-file)
+                   (throw 'found-it nil))
+                  (t
+                   (oc/find-tags-file-r (directory-file-name parent)))))))
     (catch 'found-it
       (oc/find-tags-file-r (buffer-file-name)))))
 

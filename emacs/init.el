@@ -28,7 +28,6 @@
 (setq-default require-final-newline t)
 (setq-default vertical-scroll-bar 'right)
 (setq-default show-trailing-whitespace t)
-(setq-default auto-revert-mode t)
 
 (setq inhibit-startup-screen t)  ; Don't show starupt screen.
 (setq search-highlight t)        ; Highlight search object.
@@ -44,8 +43,7 @@
 (column-number-mode t)
 (show-paren-mode t)
 (transient-mark-mode -1)
-;;(auto-compression-mode 1)  ; Transparently edit compressed files.
-;;(setq byte-compile-verbose t)
+(global-auto-revert-mode t)
 
 ;;
 ;; History.
