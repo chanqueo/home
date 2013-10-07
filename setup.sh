@@ -1,6 +1,7 @@
 #!/bin/bash
 
 ln -fs $(pwd)/.bashrc ~/.bashrc
+ln -fs $(pwd)/.gitconfig ~/.gitconfig
 
 if [ -n "$OS" ] && [ "$OS" = "Windows_NT" ]
 then
