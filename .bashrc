@@ -30,9 +30,6 @@ then
     export TMP=/tmp
     unset TEMP
     export TEMP=/tmp
-    export PATH=$PATH:/cygdrive/c/compilers/bin
-    export PATH=$PATH:/cygdrive/c/LonWorks/bin
-    export PATH=$PATH:/cygdrive/c/Program\ Files/PuTTY
 fi
 
 export PATH=$PATH:${HOME}/bin
@@ -223,13 +220,19 @@ alias rsync='rsync -aP --exclude=".svn" --exclude="*~" --exclude="cscope.*"'
 #
 # alias cd=cd_func
 
-# Search for expression in source files.
+# Searches for expression in source files.
 grepc ()
 {
     local dir
     dir=$2
     [[ -z $2 ]] && dir=.
     find $dir \( -name "*.[ch]" -o -name "*.nc" \) -print0 | xargs -0 grep -nHi $1
+}
+
+# Cleans temporary files in current directory.
+clean()
+{
+    rm -f *~ *.bak
 }
 
 # Configure ConTeXt if present.
