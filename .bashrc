@@ -32,7 +32,12 @@ then
     export TEMP=/tmp
 fi
 
-export PATH=$PATH:${HOME}/bin
+if [ -d ${HOME}/bin ]
+then
+    export PATH=$PATH:${HOME}/bin
+fi
+
+# Sets default editor.
 export EDITOR="emacs -nw"
 
 # Less and man colors.
@@ -235,16 +240,16 @@ clean()
     rm -f *~ *.bak
 }
 
-# Configure ConTeXt if present.
-if [ -x /opt/context/tex/setuptex.bat ]
+# Configures ConTeXt if present.
+if [ -d /opt/context/tex/texmf-mswin/bin ]
 then
-    /opt/context/tex/setuptex.bat
+    export PATH=$PATH:/opt/context/tex/texmf-mswin/bin
 fi
 
-# Check for an interactive session
+# Checks for an interactive session.
 [ -z "$PS1" ] && return
 
-# set a fancy prompt
+# Sets a fancy prompt
 if [ -n "$SSH_CLIENT" ]
 then
     PS1="\n\[\e[1;31m\]\u@\h \[\e[0;33m\]\w\[\e[m\]\n\$ "
