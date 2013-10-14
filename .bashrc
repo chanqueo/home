@@ -18,7 +18,7 @@
 # User dependent .bashrc file
 
 # If not running interactively, don't do anything
-#[[ "$-" != *i* ]] && return
+[[ "$-" != *i* ]] && return
 
 # Environment Variables
 # #####################
@@ -246,13 +246,27 @@ then
     export PATH=$PATH:/opt/context/tex/texmf-mswin/bin
 fi
 
-# Checks for an interactive session.
-[ -z "$PS1" ] && return
-
-# Sets a fancy prompt
+# Sets a fancy prompt.
 if [ -n "$SSH_CLIENT" ]
 then
     PS1="\n\[\e[1;31m\]\u@\h \[\e[0;33m\]\w\[\e[m\]\n\$ "
 else
     PS1="\n\[\e[0;32m\]\u@\h \[\e[0;33m\]\w\[\e[m\]\n\$ "
+fi
+
+# Cygwin update function.
+if [ -n "$OS" ] && [ "$OS" = "Windows_NT" ]
+then
+    update()
+    {
+        if [ -z "$CYGWINSETUPDIR" ]
+        then
+            echo CYGWINSETUPDIR not defined
+        else
+            [ -z "$CYGWINSETUPFILE" ] && CYGWINSETUPFILE="setup-x86.exe"
+            wget http://www.cygwin.com/$CYGWINSETUPFILE \
+                -O $CYGWINSETUPDIR/$CYGWINSETUPFILE
+            run $CYGWINSETUPDIR/$CYGWINSETUPFILE
+        fi
+    }
 fi
