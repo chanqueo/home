@@ -226,7 +226,7 @@ alias rsync='rsync -aP --exclude=".svn" --exclude="*~" --exclude="cscope.*"'
 # alias cd=cd_func
 
 # Searches for expression in source files.
-grepc ()
+grepc()
 {
     local dir
     dir=$2
@@ -254,19 +254,30 @@ else
     PS1="\n\[\e[0;32m\]\u@\h \[\e[0;33m\]\w\[\e[m\]\n\$ "
 fi
 
-# Cygwin update function.
+# Cygwin setup and update functions.
 if [ -n "$OS" ] && [ "$OS" = "Windows_NT" ]
 then
+    [ -z "$CYGWINSETUPFILE" ] && export CYGWINSETUPFILE="setup-x86.exe"
+    setup()
+    {
+        if [ -z "$CYGWINSETUPDIR" ]
+        then
+            echo CYGWINSETUPDIR not defined
+        else
+            wget http://www.cygwin.com/$CYGWINSETUPFILE \
+                -O $CYGWINSETUPDIR/$CYGWINSETUPFILE
+            run $CYGWINSETUPDIR/$CYGWINSETUPFILE -n
+        fi
+    }
     update()
     {
         if [ -z "$CYGWINSETUPDIR" ]
         then
             echo CYGWINSETUPDIR not defined
         else
-            [ -z "$CYGWINSETUPFILE" ] && CYGWINSETUPFILE="setup-x86.exe"
             wget http://www.cygwin.com/$CYGWINSETUPFILE \
                 -O $CYGWINSETUPDIR/$CYGWINSETUPFILE
-            run $CYGWINSETUPDIR/$CYGWINSETUPFILE
+            $CYGWINSETUPDIR/$CYGWINSETUPFILE -qng
         fi
     }
 fi
