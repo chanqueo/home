@@ -230,7 +230,6 @@
 ;; Minor-mode configurations
 ;;
 ;;(load "emacs-cedet.el")
-;;(load "emacs-tabbar.el")
 
 ;;
 ;; Command aliases

@@ -266,7 +266,7 @@ then
         else
             wget http://www.cygwin.com/$CYGWINSETUPFILE \
                 -O $CYGWINSETUPDIR/$CYGWINSETUPFILE
-            run $CYGWINSETUPDIR/$CYGWINSETUPFILE -n
+            run $CYGWINSETUPDIR/$CYGWINSETUPFILE -Mn
         fi
     }
     update()
