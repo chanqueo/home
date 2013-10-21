@@ -2,11 +2,16 @@
 
 git_setup()
 {
-    if git --git-dir=$2/.git --work-tree=$2 status 2>&- 1>&-
+    local repo=$1
+    local dir=$2
+
+    if [ -d $dir ]
     then
-        git --git-dir=$2/.git --work-tree=$2 pull
+        echo Update $repo
+        cd $dir; git pull; cd ..
     else
-        git clone $1 $2
+        echo Clone $repo
+        git clone $repo $dir
     fi
 }
 
