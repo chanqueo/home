@@ -42,7 +42,7 @@
 (line-number-mode t)
 (column-number-mode t)
 (show-paren-mode t)
-(transient-mark-mode -1)
+(transient-mark-mode t)
 (global-auto-revert-mode t)
 
 ;;
