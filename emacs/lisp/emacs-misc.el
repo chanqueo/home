@@ -95,37 +95,41 @@
   (delete-trailing-whitespace)
   (indent-region (point-min) (point-max) nil))
 
-;; (defun oc/canonicalize-directory (dir)
-;;   (or dir
-;;       (setq dir default-directory))
-;;   (setq dir (file-name-as-directory
-;;              (expand-file-name (substitute-in-file-name dir))))
-;;   dir
-;;   )
+(defun oc/canonicalize-directory (dir)
+  "Canonicalizes specified directory."
+  (or dir
+      (setq dir default-directory))
+  (setq dir (file-name-directory
+             (expand-file-name (substitute-in-file-name dir))))
+  dir)
 
-;; (defun oc/search-directory-hierarchy (dir)
-;;   "Look for a cscope database in the directory hierarchy.
-;; Starting from DIRECTORY, look upwards for a cscope database."
-;;   (let (this-directory database-dir)
-;;     (catch 'done
-;;       (if (file-regular-p dir)
-;;           (throw 'done dir))
-;;       (setq dir (cscope-canonicalize-directory dir)
-;;             this-directory dir)
-;;       (while this-directory
-;;         (if (or (file-exists-p (concat this-directory cscope-database-file))
-;;                 (file-exists-p (concat this-directory cscope-index-file)))
-;;             (progn
-;;               (setq database-dir this-directory)
-;;               (throw 'done database-dir)
-;;               ))
-;;         (if (string-match "^\\(/\\|[A-Za-z]:[\\/]\\)$" this-directory)
-;;             (throw 'done dir))
-;;         (setq this-directory (file-name-as-directory
-;;                               (file-name-directory
-;;                                (directory-file-name this-directory))))
-;;         ))
-;;     ))
+(defvar oc/root-file-name ".root" "Default root file name.")
+
+(defun oc/find-root-file (dir)
+  "Recursively searches hierarchy for a root file."
+  (interactive "FSearch root file from: ")
+  (let* ((dir (oc/canonicalize-directory dir))
+         (file (concat dir oc/root-file-name)))
+    (cond ((file-exists-p file)
+           file)
+          ((equal dir "/")
+           nil)
+          (t
+           (oc/find-root-file
+            (file-name-directory (directory-file-name dir)))))))
+
+(defun oc/find-file-r (file dir &OPTIONAL default-directory)
+  "Recursively searches hierarchy for a file."
+  (interactive "DSearch file: ")
+  (let* ((dir (oc/canonicalize-directory dir))
+         (file (concat dir oc/root-file-name)))
+    (cond ((file-exists-p file)
+           file)
+          ((equal dir "/")
+           nil)
+          (t
+           (oc/find-root-file
+            (file-name-directory (directory-file-name dir)))))))
 
 (defun oc/find-trunk ()
   "Recursively searches each parent directory for a directory named `trunk'
