@@ -32,6 +32,7 @@
 (setq inhibit-startup-screen t)  ; Don't show starupt screen.
 (setq search-highlight t)        ; Highlight search object.
 (setq query-replace-highlight t) ; Highlight query object.
+(setq mouse-wheel-progressive-speed nil) ; Don't accelerate scrolling.
 
 ;; Use font DejaVu if installed.
 (add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10"))
