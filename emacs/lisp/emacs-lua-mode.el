@@ -15,5 +15,7 @@
 (if (load "lua-mode.el" 'noerror)
     (progn
       (add-hook 'lua-mode-hook 'oc/lua-mode-hook)
+      (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
       (add-to-list 'auto-mode-alist '("\\.cid\\'" . lua-mode))
-      (add-to-list 'auto-mode-alist '("\\.cld\\'" . lua-mode))))
+      (add-to-list 'auto-mode-alist '("\\.cld\\'" . lua-mode))
+      (add-to-list 'interpreter-mode-alist '("lua" . lua-mode))))
