@@ -12,7 +12,7 @@ hardstatus on
 termcapinfo xterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
 # Use this for the hard status string
 hardstatus alwayslastline
-hardstatus string '%{= Kd} %{= Kd}%-w%{= KW}%n %t%{= Kd}%+w %-= %{KG} %d %M %Y %c:%s'
+hardstatus string '%{= Kd} %{= Kd}%-w%{= KW}%n %t%{= Kd}%+w %-= %{KW} %d %M %Y %c:%s'
 
 # Set these terminals up to be 'optimal' instead of vt100
 termcapinfo xterm* OP
