@@ -12,7 +12,7 @@
   (local-set-key [return] 'newline-and-indent)
   (local-set-key [?\C-c ?\C-c] 'recompile))
 
-(if (load "lua-mode.el" 'noerror)
+(if (load "lua-mode" 'noerror)
     (progn
       (add-hook 'lua-mode-hook 'oc/lua-mode-hook)
       (add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))

@@ -137,7 +137,8 @@ alias ls='ls -hF --color=tty'       # classify files in colour
 alias ll='ls -l'                    # long list
 alias la='ls -A'                    # all but . and ..
 alias etags='ctags'
-alias rsync='rsync -azP'            # archive compress partiel progress
+# archive compress partiel progress
+alias rsync="rsync -azP --exclude '*.svn' --exclude '*~' --exclude '*.bak'"
 
 # Umask
 #

@@ -8,27 +8,30 @@
 
 # Turn sending of screen messages to hardstatus off
 hardstatus on
+
 # Set the hardstatus prop on gui terms to set the titlebar/icon title
-termcapinfo xterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
+#termcapinfo xterm* hs:ts=\E]0;:fs=\007:ds=\E]0;\007
+
 # Use this for the hard status string
 hardstatus alwayslastline
 hardstatus string '%{= Kd} %{= Kd}%-w%{= KW}%n %t%{= Kd}%+w %-= %{KW} %d %M %Y %c:%s'
 
 # Set these terminals up to be 'optimal' instead of vt100
-termcapinfo xterm* OP
+#termcapinfo xterm* OP
 
 # Change the xterm initialization string from is2=\E[!p\E[?3;4l\E[4l\E>
 # (This fixes the "Aborted because of window size change" konsole symptoms found
 #  in bug #134198)
-termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
+#termcapinfo xterm* 'is=\E[r\E[m\E[2J\E[H\E[?7h\E[?1;4;6l'
 
 # To get screen to add lines to xterm's scrollback buffer, uncomment the
 # following termcapinfo line which tells xterm to use the normal screen buffer
 # (which has scrollback), not the alternate screen buffer.
-termcapinfo xterm* ti@:te@
+termcapinfo xterm* ti@
+termcapinfo xterm* te@
 
 # Enable non-blocking mode to better cope with flaky ssh connections.
-defnonblock 5
+#defnonblock 5
 
 # ------------------------------------------------------------------------------
 # SCREEN KEYBINDINGS

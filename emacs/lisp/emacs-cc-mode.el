@@ -70,11 +70,11 @@
    "#include \"" str "\"\n"
    "\n"))
 
-(pushnew `(iar2 ,(concat "^\"\\(.*\\)\",\\([0-9]+\\)\\s-+\\(?:\\(Fatal "
-                         "e\\|E\\)rror\\|Warnin\\(g\\)\\|Remar\\(k\\)\\)"
-                         "\\[[a-zA-Z0-9]+\\]:")
-                1 2 nil (4 . 5)) compilation-error-regexp-alist-alist)
-(add-to-list 'compilation-error-regexp-alist 'iar2)
+;(pushnew `(iar2 ,(concat "^\"\\(.*\\)\",\\([0-9]+\\)\\s-+\\(?:\\(Fatal "
+;                         "e\\|E\\)rror\\|Warnin\\(g\\)\\|Remar\\(k\\)\\)"
+;                         "\\[[a-zA-Z0-9]+\\]:")
+;                1 2 nil (4 . 5)) compilation-error-regexp-alist-alist)
+;(add-to-list 'compilation-error-regexp-alist 'iar2)
 
 (add-to-list 'auto-mode-alist '("\\.nc\\'" . c-mode))
 (add-to-list 'auto-mode-alist '("\\.dox\\'" . c-mode))

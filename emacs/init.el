@@ -18,7 +18,7 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode t)) ; Enable Scroll Bar.
 
 ;; Load miscellaneous tools.
-(load "emacs-misc.el")
+(load "emacs-misc")
 
 ;;
 ;; Defaults
@@ -222,15 +222,15 @@
 ;;
 ;; Major-mode configurations
 ;;
-(load "emacs-cc-mode.el")
-(load "emacs-lua-mode.el")
-(load "emacs-text-mode.el")
-(load "emacs-vc-mode.el")
+(load "emacs-cc-mode")
+(load "emacs-lua-mode")
+(load "emacs-text-mode")
+(load "emacs-vc-mode")
 
 ;;
 ;; Minor-mode configurations
 ;;
-;;(load "emacs-cedet.el")
+;;(load "emacs-cedet")
 
 ;;
 ;; Command aliases
@@ -241,5 +241,5 @@
 ;;
 ;; Custom-file
 ;;
-(setq custom-file "~/.emacs.d/custom.el")
+(setq custom-file "~/.emacs.d/custom")
 (load custom-file 'noerror)
