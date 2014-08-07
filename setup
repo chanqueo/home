@@ -10,5 +10,5 @@ then
     ln -fs $(pwd)/startxwinrc ~/.startxwinrc
 fi
 
-cd emacs; ./setup.sh; cd ..
-cd fonts; ./setup.sh; cd ..
+cd emacs; ./setup; cd ..
+cd fonts; ./setup; cd ..

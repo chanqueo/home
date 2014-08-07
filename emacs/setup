@@ -1,0 +1,6 @@
+#!/bin/bash
+
+ln -fs $(pwd) ~/.emacs.d
+
+cd packages; ./setup; cd ..
+cd lisp; ./setup; cd ..
