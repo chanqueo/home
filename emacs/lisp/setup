@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/sh
 
 echo Compile Emacs-Lisp files
 emacs -batch -f batch-byte-compile *.el
