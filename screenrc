@@ -27,8 +27,8 @@ hardstatus string '%{= Kd} %{= Kd}%-w%{= KW}%n %t%{= Kd}%+w %-= %{KW} %d %M %Y %
 # To get screen to add lines to xterm's scrollback buffer, uncomment the
 # following termcapinfo line which tells xterm to use the normal screen buffer
 # (which has scrollback), not the alternate screen buffer.
-termcapinfo xterm* ti@
-termcapinfo xterm* te@
+#termcapinfo xterm* ti@
+#termcapinfo xterm* te@
 
 # Enable non-blocking mode to better cope with flaky ssh connections.
 #defnonblock 5
@@ -56,7 +56,7 @@ termcapinfo xterm* te@
 # SCREEN SETTINGS
 # ------------------------------------------------------------------------------
 
-escape ^Qq
+#escape ^Qq
 startup_message off
 nethack on
 

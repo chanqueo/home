@@ -138,7 +138,7 @@ alias ll='ls -l'                    # long list
 alias la='ls -A'                    # all but . and ..
 alias etags='ctags'
 # archive compress partiel progress
-alias rsync="rsync -azP --exclude '*.svn' --exclude '*~' --exclude '*.bak'"
+alias rsync="rsync -azP --exclude '*.svn' --exclude '*~' --exclude '*.bak' --exclude='cscope.*'"
 
 # Umask
 #
