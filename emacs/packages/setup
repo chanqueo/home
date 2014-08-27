@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/sh
 
 git_setup()
 {
@@ -16,3 +16,4 @@ git_setup()
 }
 
 git_setup https://github.com/immerrr/lua-mode.git lua-mode
+emacs -batch -f batch-byte-compile lua-mode/lua-mode.el
