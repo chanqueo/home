@@ -2,7 +2,6 @@
 ;; Emacs init file for custom settings.
 ;;
 
-(add-to-list 'load-path "~/.emacs.d/")
 (add-to-list 'load-path "~/.emacs.d/packages/")
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
