@@ -1,6 +1,13 @@
 #!/bin/bash
+# To the extent possible under law, the author(s) have dedicated all
+# copyright and related and neighboring rights to this software to the
+# public domain worldwide. This software is distributed without any warranty.
+# You should have received a copy of the CC0 Public Domain Dedication along
+# with this software.
+# If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
 
-# base-files version 4.0-4
+# base-files version 4.2-3
+
 # ~/.bashrc: executed by bash(1) for interactive shells.
 
 # The latest version as installed by the Cygwin Setup program can
@@ -12,7 +19,7 @@
 # The copy in your home directory (~/.bashrc) is yours, please
 # feel free to customise it to create a shell
 # environment to your liking.  If you feel a change
-# would be benificial to all, please feel free to send
+# would be benifitial to all, please feel free to send
 # a patch to the cygwin mailing list.
 
 # User dependent .bashrc file
@@ -20,38 +27,8 @@
 # If not running interactively, don't do anything
 [[ "$-" != *i* ]] && return
 
-# Environment Variables
-# #####################
-
-if [ -n "$OS" ] && [ "$OS" = "Windows_NT" ]
-then
-    export DISPLAY=:0.0
-    unset TMP
-    export TMP=/tmp
-    unset TEMP
-    export TEMP=/tmp
-fi
-
-if [ -d ${HOME}/bin ]
-then
-    export PATH=$PATH:${HOME}/bin
-fi
-
-# Sets default editor.
-export EDITOR="emacs -nw"
-
-# Less and man colors.
-export LESS_TERMCAP_mb=$'\E[01;31m'    # début de blink !
-export LESS_TERMCAP_md=$'\E[01;31m'    # début de gras
-export LESS_TERMCAP_me=$'\E[0m'        # fin
-export LESS_TERMCAP_so=$'\E[01;44;33m' # début de la ligne d'état
-export LESS_TERMCAP_se=$'\E[0m'        # fin
-export LESS_TERMCAP_us=$'\E[01;32m'    # début de souligné
-export LESS_TERMCAP_ue=$'\E[0m'        # fin
-
 # Shell Options
-# #############
-
+#
 # See man bash for more options...
 #
 # Don't wait for job termination notification
@@ -124,20 +101,20 @@ export PROMPT_COMMAND="history -a"
 # alias du='du -h'
 #
 # Misc :)
-# alias less='less -r'              # raw control characters
-# alias whence='type -a'            # where, of a sort
-alias grep='grep --color'           # show differences in colour
-# alias egrep='egrep --color=auto'  # show differences in colour
-# alias fgrep='fgrep --color=auto'  # show differences in colour
+# alias less='less -r'                          # raw control characters
+# alias whence='type -a'                        # where, of a sort
+alias grep='grep --color'                       # show differences in colour
+# alias egrep='egrep --color=auto'              # show differences in colour
+# alias fgrep='fgrep --color=auto'              # show differences in colour
 #
 # Some shortcuts for different directory listings
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ls='ls -hF --color=tty'       # classify files in colour
-alias ll='ls -l'                    # long list
-alias la='ls -A'                    # all but . and ..
+alias ls='ls -hF --color=tty'                   # classify files in colour
+# alias dir='ls --color=auto --format=vertical'
+# alias vdir='ls --color=auto --format=long'
+alias ll='ls -l'                                # long list
+alias la='ls -A'                                # all but . and ..
+alias l='ls -CF'                                #
 alias etags='ctags'
-# archive compress partiel progress
 alias rsync="rsync -azP --exclude '*.svn' --exclude '*~' --exclude '*.bak' --exclude='cscope.*'"
 
 # Umask
@@ -222,6 +199,30 @@ alias rsync="rsync -azP --exclude '*.svn' --exclude '*~' --exclude '*.bak' --exc
 # }
 #
 # alias cd=cd_func
+
+# Redefines temporary directories.
+if [ -n "$OS" ] && [ "$OS" = "Windows_NT" ]
+then
+    unset TMP
+    export TMP=/tmp
+    unset TEMP
+    export TEMP=/tmp
+fi
+
+# Sets default display.
+export DISPLAY=:0.0
+
+# Sets default editor.
+export EDITOR="emacs -nw"
+
+# Less and man colors.
+export LESS_TERMCAP_mb=$'\E[01;31m'    # début de blink !
+export LESS_TERMCAP_md=$'\E[01;31m'    # début de gras
+export LESS_TERMCAP_me=$'\E[0m'        # fin
+export LESS_TERMCAP_so=$'\E[01;44;33m' # début de la ligne d'état
+export LESS_TERMCAP_se=$'\E[0m'        # fin
+export LESS_TERMCAP_us=$'\E[01;32m'    # début de souligné
+export LESS_TERMCAP_ue=$'\E[0m'        # fin
 
 # Searches for expression in source files.
 grepc()

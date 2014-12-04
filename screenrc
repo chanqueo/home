@@ -33,6 +33,9 @@ hardstatus string '%{= Kd} %{= Kd}%-w%{= KW}%n %t%{= Kd}%+w %-= %{KW} %d %M %Y %
 # Enable non-blocking mode to better cope with flaky ssh connections.
 #defnonblock 5
 
+# Use 256 colors.
+term screen-256color
+
 # ------------------------------------------------------------------------------
 # SCREEN KEYBINDINGS
 # ------------------------------------------------------------------------------

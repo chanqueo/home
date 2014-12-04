@@ -2,6 +2,7 @@
 
 ln -fs $(pwd)/bashrc ~/.bashrc
 ln -fs $(pwd)/gitconfig ~/.gitconfig
+ln -fs $(pwd)/minttyrc ~/.minttyrc
 ln -fs $(pwd)/screenrc ~/.screenrc
 
 if [ -n "$OS" ] && [ "$OS" = "Windows_NT" ]
