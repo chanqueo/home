@@ -7,11 +7,9 @@
 (require 'thingatpt)
 (require 'uniquify)
 
-(defvar oc/emacs-path "~/.emacs.d/" "Location of Emacs-specific files.")
-(defvar oc/package-path "~/.emacs.d/packages/" "Location of packages.")
 (defvar oc/lisp-path "~/.emacs.d/lisp" "Location of Emacs Lisp files.")
+(defvar oc/package-path "~/.emacs.d/packages/" "Location of packages.")
 
-(add-to-list 'load-path oc/emacs-path)
 (add-to-list 'load-path oc/package-path)
 (add-to-list 'load-path oc/lisp-path)
 

@@ -1,0 +1,5 @@
+BoldAsFont=no
+Columns=128
+Rows=32
+Term=xterm-256color
+Font=Fixedsys

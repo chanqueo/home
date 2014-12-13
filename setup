@@ -6,8 +6,9 @@ ln -fs $(pwd)/screenrc ~/.screenrc
 
 if [ -n "$OS" ] && [ "$OS" = "Windows_NT" ]
 then
-    ln -fs $(pwd)/XWinrc ~/.XWinrc
+    ln -fs $(pwd)/minttyrc ~/.minttyrc
     ln -fs $(pwd)/startxwinrc ~/.startxwinrc
+    ln -fs $(pwd)/XWinrc ~/.XWinrc
 fi
 
 cd emacs; ./setup; cd ..
