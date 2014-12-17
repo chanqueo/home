@@ -280,10 +280,10 @@
 ;;
 ;; Major-mode configurations
 ;;
-;(load "emacs-cc-mode")
-;(load "emacs-lua-mode")
-;(load "emacs-text-mode")
-;(load "emacs-vc-mode")
+(load "emacs-cc-mode")
+(load "emacs-lua-mode")
+(load "emacs-text-mode")
+(load "emacs-vc-mode")
 
 ;;
 ;; Custom-file
