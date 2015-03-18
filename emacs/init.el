@@ -31,6 +31,7 @@
 (setq-default show-trailing-whitespace t) ; Display trailing whitespaces.
 (setq-default fill-column 80) ; Buffer width.
 (setq-default tab-width 4) ; Default tab width.
+(setq-default indent-tabs-mode nil) ; Use spaces instead of tabs.
 
 (setq inhibit-startup-screen t) ; Don't show startup screen.
 (setq search-highlight t) ; Highlight search object.
@@ -137,9 +138,9 @@
 (defun oc/iwb ()
   "Indents whole buffer."
   (interactive)
-  (untabify (point-min) (point-max))
   (delete-trailing-whitespace)
-  (indent-region (point-min) (point-max) nil))
+  (indent-region (point-min) (point-max) nil)
+  (untabify (point-min) (point-max)))
 
 (defalias 'iwb 'oc/iwb "Indents whole buffer.")
 
