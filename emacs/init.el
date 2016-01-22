@@ -41,13 +41,13 @@
 (setq uniquify-buffer-name-style 'forward) ; Buffer name based on directory.
 
 ; Default font.
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10"))
+;(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10"))
 
 (line-number-mode t) ; Display line number.
 (column-number-mode t) ; Display column number.
 (show-paren-mode t) ; Highlight matching parenthesis.
 (transient-mark-mode t) ; Highlight regions.
-(global-auto-revert-mode t) ; Enable auto revert mode.
+;(global-auto-revert-mode t) ; Enable auto revert mode.
 (savehist-mode t) ; Save minibuffer history.
 (auto-fill-mode t) ; Enable automatic line breaking.
 

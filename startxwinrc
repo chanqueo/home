@@ -9,4 +9,5 @@ fi
 # Programs to load with X-Server.
 #[ -x /usr/bin/emacs ] && /usr/bin/emacs
 #[ -x /usr/bin/fbpanel ] && exec /usr/bin/fbpanel -p multiwindow
-[ -x /usr/bin/sleep ] && /usr/bin/sleep infinity
+#[ -x /usr/bin/sleep ] && /usr/bin/sleep infinity
+[ -x /usr/bin/xwin-xdg-menu ] && exec /usr/bin/xwin-xdg-menu
