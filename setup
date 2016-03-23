@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 ln -fs $(pwd)/bashrc ~/.bashrc
 ln -fs $(pwd)/gitconfig ~/.gitconfig
