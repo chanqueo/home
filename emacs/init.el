@@ -285,6 +285,7 @@
 (load "emacs-lua-mode")
 (load "emacs-text-mode")
 (load "emacs-vc-mode")
+(load "emacs-js-mode")
 
 ;;
 ;; Custom-file
