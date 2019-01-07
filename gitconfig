@@ -13,8 +13,8 @@
 	cl = clone
 	undo = reset --soft HEAD^
 	sta = status
-	ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+        l = log --graph --full-history --date=short  --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%ad' - '%s' '%C(bold)(%an)%Creset"
+        la = log --graph --full-history --date=short  --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%ad' - '%s' '%C(bold)(%an)%Creset"
 	logtree ="log --graph --oneline --decorate --all"
 	alias = "!git config -l | grep alias | cut -c 7-"
 	logg = log --oneline --graph --decorate
